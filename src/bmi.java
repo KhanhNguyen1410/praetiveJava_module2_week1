@@ -1,4 +1,4 @@
-import java.util.Scanner;
+ abstract import java.util.Scanner;
 
 public class bmi {
     public static void main(String[] args) {

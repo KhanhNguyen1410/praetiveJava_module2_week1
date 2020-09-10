@@ -1,79 +1,138 @@
 import java.util.Scanner;
 
-public class readNumbers {
+public class readNumber {
     public static void main(String[] args) {
-        System.out.println("enter your number: ");
-        Scanner  scanner = new Scanner(System.in);
+        Scanner scanner =  new Scanner(System.in);
         int number = scanner.nextInt();
-//        int ones = scanner.nextInt();
-        String read = "";
-//        String read = "";
-        if (number > 0 && number <= 20){
-            switch (number){
-                case 1:
-                   read = "one";
-                    break;
-                case 2:
-                    read = "two";
-                    break;
-                case 3:
-                    read = "three";
-                    break;
-                case 4:
-                    read = "four";
-                    break;
-                case 5:
-                    read = "five";
-                    break;
-                case 6:
-                    read = "six";
-                    break;
-                case 7:
-                    read = "seven";
-                    break;
-                case 8:
-                    read = "eight";
-                    break;
-                case 9:
-                    read = "nine";
-                    break;
-                case 10:
-                    read = "ten";
-                    break;
+        int hundreds, tens, units;
+        hundreds = number / 100;
+        tens = (number % 100)/10;
+        units = (number % 100)%10;
+//        System.out.printf("%d %d %d",hundreds,tens,units);
+        String readUnits = "";
+        String readTens = "";
+        String readHundreds = "";
+        String specialNumber = "";
 
-                    case 11:
-                        read = "eleven";
-                        break;
-                    case 12:
-                        read = "twelve";
-                        break;
-                    case 13:
-                        read = "thirteen";
-                        break;
-                    case 14:
-                        read = "fourteen";
-                        break;
-                    case 15:
-                        read = "fifteen";
-                        break;
-                    case 16:
-                        read = "sixteen";
-                        break;
-                    case 17:
-                        read = "seventeen";
-                        break;
-                    case 18:
-                        read = "eighteen";
-                        break;
-                    case 19:
-                        read = "nineteen";
-                        break;
-                    case 20:
-                        read = "twenty";
-                        break;
-                }
-
-            System.out.printf("the number %d read is %s ",number ,read);
+        switch (units) {
+            case 0:
+                readUnits = "";
+                break;
+            case 1:
+                readUnits = "one";
+                break;
+            case 2:
+                readUnits = "two";
+                break;
+            case 3:
+                readUnits = "three";
+                break;
+            case 4:
+                readUnits = "four";
+                break;
+            case 5:
+                readUnits = "five";
+                break;
+            case 6:
+                readUnits = "six";
+                break;
+            case 7:
+                readUnits = "seven";
+                break;
+            case 8:
+                readUnits = "eight";
+                break;
+            case 9:
+                readUnits = "nine";
+                break;
         }
+
+
+        switch (tens){
+            case 2:
+                readTens = "twenty";
+                break;
+            case 3:
+                readTens = "thirty";
+                break;
+            case 4:
+                readTens = "forty";
+                break;
+            case 5:
+                readTens = "fifty";
+                break;
+            case 6:
+                readTens = "sixty";
+                break;
+            case 7:
+                readTens = "seventy";
+                break;
+            case 8:
+                readTens = "eighty";
+                break;
+            case 9:
+                readTens = "ninety";
+                break;
+        }
+        switch (hundreds){
+            case 0:
+                readHundreds = "";
+                break;
+            case 1:
+                readHundreds = "one hundred ";
+                break;
+            case 2:
+                readHundreds = "two hundred ";
+                break;
+            case 3:
+                readHundreds= "three hundred  ";
+                break;
+            case 4:
+                readHundreds = "four hundred";
+                break;
+            case 5:
+                readHundreds = "five hundred ";
+                break;
+            case 6:
+                readHundreds = "six hundred ";
+                break;
+            case 7:
+                readHundreds = "seven hundred ";
+                break;
+            case 8:
+                readHundreds = "eight hundred ";
+                break;
+            case 9:
+                readHundreds = "night hundred ";
+                break;
+        }
+//        switch (number){
+//            case 11:
+//                System.out.printf("%d red is eleven",number);
+//                break;
+//            case 12:
+//                System.out.printf("%d read is twelve",number);
+//                break;
+//            case 13:
+//                System.out.printf("%d read is thirteen",number);
+//                break;
+//
+//        }
+//        if (tens == 1 && units < 20 && units > 13 ){
+//            System.out.printf("%d read is %s%steen",number,readHundreds,readUnits);
+//        }
+        if (tens == 1 && units == 1){
+            System.out.printf("%d read is %s eleven",number,readHundreds);
+        }
+        else if (number < 10 & number > 0){
+            System.out.printf("%d read is %s",number,readUnits);
+        }
+        else if (number < 100 && number > 20){
+            System.out.printf("%d read is %s%s",number,readTens,readUnits);
+        }
+        else if (number < 1000 && number >= 100){
+            System.out.printf("%d read is %s and %s %s",number,readHundreds,readTens,readUnits);
+        }
+
     }
 }
